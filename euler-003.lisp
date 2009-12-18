@@ -1,16 +1,3 @@
-(defun old-prime-list (n)
-	"This function builds a list of odd numbers up to n and then works it's
-	way through the list removing an multiples of each number it encounters
-	starting at 3.
-	This seemed like a good idea when I first implemented it but it turns
-	out that it is VERY slow."
-	(let ((primes (loop for i from 3 to n by 2 collecting i)))
-			(dolist (prm primes)
-			    (do ((step (+ prm (* prm 2)) (+ step (* prm 2))))
-				((> step n))
-			      (delete step primes)))
-			(append '(2) primes)))
-
 (defun prime-array (n)
         "This first creates an array where each index represents
         all the odd numbers up to 'n' starting at 3 e.g n=6 array=[0]<=>(3),[1]<=>(5)
@@ -40,16 +27,20 @@
 
 
 
-(defun max-prime-factor (num &optional primes)
-  (let* ((primes (if primes primes (prime-list 1000)))
-	 (p (first primes)))
-    (if (>= p num)
-	p
-	(if (> (mod num p) 0)
-	    (max-prime-factor num (rest primes))
-	    (max-prime-factor (/ num p) primes)))))
+(defun prime-factors (num &optional primes)
+	"This function takes a number and then a list of prime numbers which it
+	then uses to find all the factors of the given number. If a list of primes
+	is not given the function will use the prime-list function to work out all
+	the primes before 1000 and use them."
+	  (let* ((primes (if primes primes (prime-list 1000)))
+		 (p (first primes)))
+	    (if (>= p num)
+		(list p)
+		(if (> (mod num p) 0)
+		    (prime-factors num (rest primes))
+		    (nconc (list p) (prime-factors (/ num p) primes))))))
 
-(defun euler-003 () (max-prime-factor 600851475143 (prime-list 10000)))
+(defun euler-003 () (prime-factors 600851475143 (prime-list 10000)))
 
 
 
