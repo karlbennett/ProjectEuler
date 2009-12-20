@@ -58,15 +58,35 @@
    than the inner index record of the highest palindrom."
 	   (do* ((hp 0)
 		 (hj 0)
+		 (hi 0)
 		 (max (make-max-number n))
 		 (j max (if (= 0 j) (setf j i) (setf j (- j 1))))
 		 (i max (if (= 0 j) (setf i (- i 1)) i))
 		 (multi (* i j) (* i j)))
-		((or (= 0 i) (< i hj)) hp)
+		((or (= 0 i) (< i hj)) (list hi hj hp))
 	     (if (and (palindrom-number-check multi) (> multi hp))
 		 (progn 
 		   (setf hp multi)
+		   (setf hi i)
 		   (setf hj j)))))
+
+(defun new-palindrom-multiple-find (n)
+  "Project Euler Answer minus the 11 factor optimisation so the function is more general."
+	   (do* ((hp 0)
+		 (hi 0)
+		 (hj 0)
+		 (min (expt 10 (- n 1)))
+		 (max (make-max-number n))
+		 (j max (if (or (<= j i) (<= multi hp)) (setf j max) (setf j (- j 1))))
+		 (i max (if (= j max) (setf i (- i 1)) i))
+		 (multi (* i j) (* i j)))
+		((<= i min) (list hi hj hp))
+	     (if (and (palindrom-number-check multi) (> multi hp)) 
+		 (progn 
+		   (setf hp multi)
+		   (setf hi i)
+		   (setf hj j)))))
+
 
 
 (print (format nil "Split 1234567: ~A" (split-number 123456)))
@@ -77,3 +97,4 @@
 (terpri)
 (print (format nil "palindrom-multiple-find 3: ~A" (palindrom-multiple-find 3)))
 (terpri)
+(quit)
