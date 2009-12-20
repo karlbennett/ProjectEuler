@@ -1,4 +1,4 @@
-#!/usr/bin/sbcl --noinform
+;#!/usr/bin/sbcl --noinform
 
 (defun split-number (n)
   "This function takes any number and splits it into two halves then

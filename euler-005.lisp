@@ -1,4 +1,4 @@
-#!/usr/bin/sbcl --noinform
+;#!/usr/bin/sbcl --noinform
 
 (defun euler-005 ()
   "This function fonds the first intiger that is divisable by

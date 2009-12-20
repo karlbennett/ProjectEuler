@@ -1,0 +1,15 @@
+These are my solutions to the problems on the Project Euler website (http://projecteuler.net).
+They can be run in three different ways, but befoe trying to run then you must make sure you have sbcls (Steel Bank Common Lisp) installed.
+
+First: If running under Unix just run the related executable shell scripts e.g. euler-001.sh.
+
+Second: Again if under Unix place the .sbclrc file into your $HOME directory then uncomment the shebang line in each of the *.lisp files and chmod them to be executable.
+	1:	~/ProjectEuler/> cp .sbclrc ~/
+	2:	~/ProjectEuler/> vim *.lisp 
+		Change -	;#!/usr/bin/sbcl --noinform
+		To -		#!/usr/bin/sbcl --noinform
+	3:	> chmod +x *.lisp
+	4:	> ./euler-001.lisp
+
+Third: Run the *.lisp files with the following command.
+	~/ProjectEuler/> sbcl --noinform --noprint --load <lisp filename>

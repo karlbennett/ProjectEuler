@@ -1,4 +1,4 @@
-#!/usr/bin/sbcl --noinform
+;#!/usr/bin/sbcl --noinform
 
 (defun euler-006 (num)
   "This function find the value of

@@ -1,4 +1,4 @@
-#!/usr/bin/sbcl --noinform
+;#!/usr/bin/sbcl --noinform
 
 (defun old-prime-list (n)
         "This function builds a list of odd numbers up to n and then works it's

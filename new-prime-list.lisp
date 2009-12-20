@@ -1,4 +1,4 @@
-#!/usr/bin/sbcl --noinform
+;#!/usr/bin/sbcl --noinform
 
 (defun prime-array (n) 
 	"This first creates an array where each index represents
