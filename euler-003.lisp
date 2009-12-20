@@ -1,3 +1,5 @@
+#!/usr/bin/sbcl --noinform
+
 (defun prime-array (n)
         "This first creates an array where each index represents
         all the odd numbers up to 'n' starting at 3 e.g n=6 array=[0]<=>(3),[1]<=>(5)

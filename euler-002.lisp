@@ -1,3 +1,5 @@
+#!/usr/bin/sbcl --noinform
+
 (defun euler-002 () (do ((sum 0)
 			 (cur 1 next)
 			 (next 2 (+ cur next))) 
