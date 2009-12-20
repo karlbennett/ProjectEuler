@@ -26,6 +26,8 @@
 		   (= (mod num 19) 0)
 		   (= (mod num 20) 0)) num)))
 
+(print "What is the smallest number divisible by each of the numbers 1 to 20?")
+(terpri)
 (print (format nil "euler-005: ~A" (euler-005)))
 (terpri)
 (quit)

@@ -91,6 +91,8 @@
 
 
 
+(print "Find the largest palindrome made from the product of two 3-digit numbers.")
+(terpri)
 (print (format nil "Split 1234567: ~A" (split-number 123456)))
 (terpri)
 (print (format nil "Palindrom-Check 1234321: ~A" (palindrom-number-check 1234321)))

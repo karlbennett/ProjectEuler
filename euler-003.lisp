@@ -25,6 +25,8 @@
 
 
 
+(print "Find the largest prime factor of a composite number.")
+(terpri)
 (print (format nil "euler-003: ~A" (euler-003)))
 (terpri)
 (quit)

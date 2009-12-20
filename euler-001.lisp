@@ -5,6 +5,8 @@
 		       sum x))
 
 
+(print "Add all the natural numbers below one thousand that are multiples of 3 or 5.")
+(terpri)
 (print (format nil "euler-001: ~A" (euler-001)))
 (terpri)
 (quit)

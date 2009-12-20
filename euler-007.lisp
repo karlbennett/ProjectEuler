@@ -7,6 +7,8 @@
 
 
 
+(print "Find the 10001st prime.")
+(terpri)
 (print (format nil "euler-007: ~A" (euler-007)))
 (terpri)
 (quit)
