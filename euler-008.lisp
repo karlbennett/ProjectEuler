@@ -33,7 +33,7 @@
 				(setf hmult lmult)))
 		(list (list hone htwo hthree hfour hfive) hmult)))
 
-(defun euler-008 () (highest-five (file->list "numbers.txt")))
+(defun euler-008 () (highest-five (file->list "data/numbers.txt")))
 
 
 (print "Discover the largest product of five consecutive digits in the 1000-digit number.")
