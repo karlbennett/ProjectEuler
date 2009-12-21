@@ -1,6 +1,6 @@
 These are my solutions to the problems on the Project Euler website (http://projecteuler.net).
-They can be run in three different ways, but befoe trying to run then you must make sure you
-have sbcls (Steel Bank Common Lisp - http://www.sbcl.org) installed.
+They can be run in three different ways, but before trying to run them you must make sure you
+have sbcl (Steel Bank Common Lisp - http://www.sbcl.org) installed.
 
 First: If running under Unix just run the related executable shell scripts e.g. euler-001.sh.
 
