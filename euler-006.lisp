@@ -8,6 +8,5 @@
 
 (print "What is the difference between the sum of the squares and the square of the sums?")
 (terpri)
-(print (format nil "euler-006: ~A" (euler-006 100)))
-(terpri)
+(format t "euler-006: ~A~%" (euler-006 100))
 (quit)
