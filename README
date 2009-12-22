@@ -14,4 +14,4 @@ Second: Again if under Unix place the .sbclrc file into your $HOME directory the
 	4:	> ./euler-001.lisp
 
 Third: Run the *.lisp files with the following command.
-	~/ProjectEuler/> sbcl --noinform --noprint --load <lisp filename>
+	~/ProjectEuler/> sbcl --script <lisp filename>
