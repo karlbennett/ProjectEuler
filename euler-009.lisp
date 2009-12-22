@@ -18,6 +18,15 @@
 		n)
 	(= (+ (first triplet) (second triplet) (third triplet)) n))
 
+(defun find-triplet-for-num (num)
+	(do* 	((sum 0 (apply '+ triplet))
+			(n 1 (if (> sum num) (1+ n) n))
+			(m 2 (if (> sum num) (1+ n) (1+ m))))
+			(k 1 (
+			(triplet nil (pythagorean-triplet m n k)))
+		((= sum num) triplet)
+		(
+
 (defun euler-009 () (triplet-multiple-test (pythagorean-triplet-check (pythagorean-triplet 20 19 1)) 1000))
 
 
