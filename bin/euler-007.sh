@@ -1,2 +1,6 @@
+DIRNAME=`dirname $0`
+BASENAME=`basename $0`
+LISPNAME=`echo $BASENAME | sed 's/.sh$/.lisp/'`
+cd $DIRNAME
 cd ../
-sbcl --script `echo $0 | sed 's/.\///' | sed 's/.sh$//'`.lisp
+sbcl --script $LISPNAME
