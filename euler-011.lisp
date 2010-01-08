@@ -40,18 +40,18 @@
 
 (defun euler-011 ()
   (let* ((numarray (file->2darray "data/euler-011.txt"))
-	(highest-fours (list 
-			(find-highest-four numarray)
-			(find-highest-four (get-verticals numarray))
-			(find-highest-four (get-diagonals numarray))
-			(find-highest-four (get-diagonals (reverse numarray)))))
-	(highest-four (find-highest-four highest-fours)))
-    (format t "Highest Horizontal: ~A = ~A~%" (first highest-fours) (apply '* (first highest-fours)))
-    (format t "Highest Vertical: ~A = ~A~%" (second highest-fours) (apply '* (second highest-fours)))
-    (format t "Highest Diagonal1: ~A = ~A~%" (third highest-fours) (apply '* (third highest-fours)))
-    (format t "Highest Diagonal2: ~A = ~A~%" (fourth highest-fours) (apply '* (fourth highest-fours)))
-    (format t "Highest Total: ~A = ~A~%" highest-four (apply '* highest-four))
-    (list highest-four (apply '* highest-four))))    
+	 (highest-h (find-highest-four numarray))
+	 (highest-v (find-highest-four (get-verticals numarray)))
+	 (highest-d1 (find-highest-four (get-diagonals numarray)))
+	 (highest-d2 (find-highest-four (get-diagonals (reverse numarray))))
+	 (highest-four (find-highest-four (list highest-h highest-v highest-d1 highest-d2)))
+	 (highest-product (apply '* highest-four)))
+    (format t "Highest Horizontal: ~A = ~A~%" highest-h (apply '* highest-h))
+    (format t "Highest Vertical: ~A = ~A~%" highest-v (apply '* highest-v))
+    (format t "Highest Diagonal1: ~A = ~A~%" highest-d1 (apply '* highest-d1))
+    (format t "Highest Diagonal2: ~A = ~A~%" highest-d2 (apply '* highest-d2))
+    (format t "Highest Total: ~A = ~A~%" highest-four highest-product)
+    (list highest-four highest-product)))   
 		     
 
 
