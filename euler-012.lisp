@@ -9,13 +9,13 @@
     ; Then return the two lists appended together.
     (remove-duplicates (append init-devs (reverse extra-devs)))))
 
-(defun find-triangle-numbers (num)
+(defun find-triangle-number (num)
   "This function finds the trianlge number of any given number."
   (loop for n from 1 to num summing n))
 
 (defun euler-012 () (do* ((n 1 (1+ n)) ; Loop from 1 to infinity...
 			  ; ...finding the triangle number of each itteration...
-			  (tri-num (find-triangle-numbers n) (find-triangle-numbers n))
+			  (tri-num (find-triangle-number n) (find-triangle-number n))
 			  ; ...find the number of divisors for each triangle number...
 			  (divisors (find-divisors tri-num) (find-divisors tri-num)))
 			 ; ...then return when the number of divisors reaches 500.
