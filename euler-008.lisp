@@ -8,7 +8,7 @@
       (close in)
       (loop for d across digits
 	 when (and (char< #\/ d) (char> #\: d) ) 
-	 collect (parse-integer (string d))))))
+	 collect (digit-char-p d)))))
 
 (defun highest-five (lst)
 	(let ((hone 0) (htwo 0) (hthree 0) (hfour 0) (hfive 0) (hmult 0))
@@ -33,7 +33,7 @@
 				(setf hmult lmult)))
 		(list (list hone htwo hthree hfour hfive) hmult)))
 
-(defun euler-008 () (highest-five (file->list "data/numbers.txt")))
+(defun euler-008 () (highest-five (file->list "data/euler-008.txt")))
 
 
 (print "Discover the largest product of five consecutive digits in the 1000-digit number.")
