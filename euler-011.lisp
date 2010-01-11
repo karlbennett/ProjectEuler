@@ -1,11 +1,11 @@
 ;#!/usr/bin/sbcl --noinform
 
 (defun split-string (str d)
-  "This funnction can be used to split a string with any given delimiter."
+  "This function can be used to split a string with any given delimiter."
   (loop for i = 0 then (1+ j) ; Start at index zero then move to... 
      as j = (position d str :start i) ; ...index j which is the index of the first delimiter.
      collect (subseq str i j) while j)) ; Collect all the characters in between the indexes
-					; as separate striing as we go.
+					; as separate string as we go.
 
 (defun file->2darray (f)
   "This function can be used to create a 2d list of strings. Where each internal list is
@@ -15,13 +15,13 @@
        while line ; ...while there are still lines left...
        collecting ; ...collect each list that is returned...
 	 (map 'list #'parse-integer ; ...after each element is parsed to an int within...
-	      (split-string line #\Space))))) ; ...the list that is made by spliting the line
+	      (split-string line #\Space))))) ; ...the list that is made by splitting the line
 					; with spaces.
 
 (defun highest-four (lst)
   "This function can be used to find the highest group of four numbers within any list of
    numbers."
-  (loop for d on lst ; Loop decreasing the passed in list by onne element at a time taking...
+  (loop for d on lst ; Loop decreasing the passed in list by one element at a time taking...
      for four = (if (>= (length d) 4) (subseq d 0 4) four) ; ...the first four elements and...
      ; ...if the product of these elements is higher than any of the last sets of four...
      for max-four = (if (> (apply '* four) (apply '* max-four))
@@ -57,7 +57,7 @@
 (defun find-highest-four (2dlist)
   "This function can be used to find the highest group of four multiples from a list of lists."
   (loop for line in 2dlist ; For each list...
-       for four = (highest-four line) ; ...find the hest group of four multipls...
+       for four = (highest-four line) ; ...find the highest group of four multiples...
        ; ...then store the ever highest multiples in max-four.
        for max-four = (if (> (apply '* four) (apply '* max-four)) four max-four)
        finally (return max-four))) ; At the end of the loop return max-four.
