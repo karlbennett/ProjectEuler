@@ -15,9 +15,9 @@
 		; ...else if the given number is not divisable by the first prime...
 		(if (> (mod num p) 0)
 		    (prime-factors num (rest primes)) ; ...try the next prime.
-		    ; ...else if it is divisable by the first prime find the prime
-		    ; factor of the given number devided by the first prime. Then
-		    ; return the a list ccontsain the first prime and the next prime
+		    ; ...else if it is divisible by the first prime find the prime
+		    ; factor of the given number divided by the first prime. Then
+		    ; return the a list containing the first prime and the next prime
 		    ; factor.
 		    (nconc (list p) (prime-factors (/ num p) primes))))))
 
