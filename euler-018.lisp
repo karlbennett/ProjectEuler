@@ -1,0 +1,33 @@
+(defun nth-level (tree n)
+  (remove nil
+	  (if (< 0 n)
+	      (nconc (nth-level (second tree) (- n 1))
+		     (nth-level (third tree) (- n 1)))
+	      (list tree))))
+
+(defun first-half (lst)
+  (let* ((lnth (length lst)) (half-lnth (if (evenp lnth) (/ lnth 2) (/ (1+ lnth) 2))))
+    (subseq lst 0 half-lnth)))
+
+(defun second-half (lst)
+  (let* ((lnth (length lst)) (half-lnth (if (evenp lnth) (/ lnth 2) (/ (1+ lnth) 2))))
+    (subseq lst half-lnth)))
+
+(defun filter-list (lst n)
+      (loop for i from n upto (length lst)
+	 and j = i then (+ i j)
+	 for element = (nth (- j 1) lst)
+	 for new-lst = (remove-if (lambda (e) (eq e element)) lst)
+	 then (remove-if (lambda (e) (eq e element)) new-lst)
+	 finally (return new-lst)))
+  
+(defun make-tree (lst)
+  (let ((head (first lst)) 
+	(fh (remove nil (nthcdr 1 (filter-list lst 3))))
+	(sh (remove nil (nthcdr 1 (filter-list lst 2)))))
+    (cond
+      ((and (< 0 (length fh)) (< 0 (length sh)))
+       (list head (make-tree fh) (make-tree sh)))
+      ((< 0 (length fh))
+       (list head (make-tree fh)))
+      (t (list head)))))
