@@ -31,3 +31,13 @@
       ((< 0 (length fh))
        (list head (make-tree fh)))
       (t (list head)))))
+
+(defun draw-tree (tree)
+  (do* ((i 0 (1+ i))
+		 (line 
+		  (remove-duplicates 
+		   (loop for e in (nth-level tree i) collect (first e)))
+		  (remove-duplicates 
+		   (loop for e in (nth-level tree i) collect (first e)))))
+		((equalp line nil))
+	     (format t "~A~%" line)))
