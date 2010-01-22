@@ -41,3 +41,16 @@
 		   (loop for e in (nth-level tree i) collect (first e)))))
 		((equalp line nil))
 	     (format t "~A~%" line)))
+
+(defun walk-tree (tree)
+	(if (< 1 (length tree))
+		(list (first tree) (if (> (first (second tree)) (first (third tree)))
+					(walk-tree (second tree))
+					(walk-tree (third tree))))
+		tree))
+				
+
+(let ((tree (make-tree '(1 2 3 4 5 6 7 8 9 10 11 12 13 14 15))))
+	(draw-tree tree)
+	(format t "~A" (walk-tree tree)))
+(quit)
